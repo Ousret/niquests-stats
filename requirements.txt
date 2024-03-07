@@ -1,0 +1,10 @@
+aiohttp==3.9.3
+
+niquests==3.5.3
+urllib3-future==2.6.902
+
+requests==2.31.0
+urllib3==2.2.1
+
+httpx==0.27.0
+httpcore==1.0.4
