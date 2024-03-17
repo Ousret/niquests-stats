@@ -60,5 +60,5 @@ if __name__ == "__main__":
     unlink("./bundle.pem")
 
     print("median", statistics.median(aggregate))
-    print("average", statistics.mean(aggregate))
+    print("average", sum(aggregate) / len(aggregate))
     print("program exit")

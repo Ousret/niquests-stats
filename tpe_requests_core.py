@@ -53,5 +53,5 @@ if __name__ == "__main__":
         time.sleep(1)
 
     print("median", statistics.median(aggregate))
-    print("average", statistics.mean(aggregate))
+    print("average", sum(aggregate) / len(aggregate))
     print("program exit")

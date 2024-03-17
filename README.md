@@ -41,6 +41,8 @@ We must ensure that we eliminate:
 - Network latency by either running the server locally or in a home network (wired).
 - It's recommended that, you must have at least 8c/16t available on the server/client side(s). 
 - Constrain the TLS version and cipher to ensure OpenSSL alignments with all clients.
+- You must ensure the lowest amount of "variance by external factor" like but not limited 
+  by controlling thoroughly things like P/E cores and assign process to bound cores if necessary.
 
 The delay must be computed after contextmanager exit (aka. pool shutdown).
 Of course, don't do anything else during the benchmarks, nothing.
@@ -85,7 +87,7 @@ High-level APIs
 |----------|---------------------------|
 | requests | 987 ms                    |
 | httpx    | 735 ms                    |
-| niquests | 600 ms                    |
+| niquests | 470 ms                    |
 
 ---
 
@@ -98,7 +100,9 @@ Simplified APIs
 | aiohttp       | 220 ms                    |
 | niquests core | 210 ms                    |
 
-Niquests is not going to settle with these numbers, we're constantly thinking of innovative ways
+Did you give up on HTTP/2 due to performance concerns? Think again!
+
+Yet, Niquests is not going to settle with these numbers, we're constantly thinking of innovative ways
 to speed things up. Nevertheless, it performs the best overall, with this level of features and being native Python.
 
 The actual delays heavily depends on your CPU capabilities and your interpreter version. 

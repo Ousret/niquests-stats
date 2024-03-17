@@ -38,7 +38,7 @@ async def main() -> None:
         await asyncio.sleep(1)
 
     print("median", statistics.median(aggregate))
-    print("average", statistics.mean(aggregate))
+    print("average", sum(aggregate) / len(aggregate))
 
     print("program exit")
 
