@@ -9,16 +9,16 @@ well known clients.
 
 ### Introduction
 
-| Client   | Constraints                                |
-|----------|--------------------------------------------|
-| aiohttp  | async, http/1 only, +c compiled extensions |
-| httpx    | async, http/2                              |
-| requests | sync only, http/1 only                     |
-| niquests | async, http/2                              |
+| Client   | Constraints                          |
+|----------|--------------------------------------|
+| aiohttp  | async, http/1 only, +c llhttp parser |
+| httpx    | async, http/2                        |
+| requests | sync, http/1 only                    |
+| niquests | async, http/2   +hpack rust          |
 
-in the given matrix of client, **aiohttp** is the only one who benefit from built native C extension
+in the given matrix of client, **aiohttp** is the only one who benefit from built llhttp native C extension
 to provide a nearly unchallengeable speed. The only way to fairly compare with aiohttp is by bringing
-the cores of requests, httpx and niquests so that the stack/complexity execution is comparable.
+the cores of requests, httpx and niquests so that the stack/complexity execution and features served are comparable.
 
 we will be as fair as possible across all clients by providing the closest alike execution.
 
@@ -83,27 +83,31 @@ CPU: 12th Gen Intel® Core™ i7, 32 GiB of DDR4.
 
 High-level APIs
 
-| Client   | Average Delay to Complete |
-|----------|---------------------------|
-| requests | 987 ms                    |
-| httpx    | 735 ms                    |
-| niquests | 470 ms                    |
+| Client   | Average Delay to Complete | Estimated Throughput |
+|----------|---------------------------|----------------------|
+| requests | 987 ms                    | ~1013 req/s          |
+| httpx    | 720 ms                    | ~1389 req/s          |
+| niquests | 390 ms                    | ~2564 req/s          |
 
 ---
 
 Simplified APIs
 
-| Client        | Average Delay to Complete |
-|---------------|---------------------------|
-| requests core | 643 ms                    |
-| httpx core    | 550 ms                    |
-| aiohttp       | 220 ms                    |
-| niquests core | 210 ms                    |
+| Client        | Average Delay to Complete | Estimated Throughput |
+|---------------|---------------------------|----------------------|
+| requests core | 643 ms                    | ~1555 req/s          |
+| httpx core    | 530 ms                    | ~1886 req/s          |
+| aiohttp       | 210 ms                    | ~4762 req/s          |
+| niquests core | 190 ms                    | ~5263 req/s          |
 
-Did you give up on HTTP/2 due to performance concerns? Think again!
+Did you give up on HTTP/2 due to performance concerns? Think again! Do you realize that you can get 2.53 times 
+faster with the same CPU if you ever switched to Niquests from Requests?
 
 Yet, Niquests is not going to settle with these numbers, we're constantly thinking of innovative ways
-to speed things up. Nevertheless, it performs the best overall, with this level of features and being native Python.
+to speed things up. Nevertheless, it performs the best overall, with offered level of features.
 
 The actual delays heavily depends on your CPU capabilities and your interpreter version. 
-The factors should remain the same.
+The factors should remain the same. 
+
+More computational power should give you higher advantages when using Niquests thanks to how it does multiplexing.
+In theory, if I were able to put my hand on a more powerful CPU, the gap between Niquests and others should be greater.
