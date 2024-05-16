@@ -87,7 +87,7 @@ High-level APIs
 |----------|---------------------------|----------------------|
 | requests | 987 ms                    | ~1013 req/s          |
 | httpx    | 720 ms                    | ~1389 req/s          |
-| niquests | 390 ms                    | ~2564 req/s          |
+| niquests | 370 ms                    | ~2700 req/s          |
 
 ---
 
@@ -98,9 +98,9 @@ Simplified APIs
 | requests core | 643 ms                    | ~1555 req/s          |
 | httpx core    | 530 ms                    | ~1886 req/s          |
 | aiohttp       | 210 ms                    | ~4762 req/s          |
-| niquests core | 190 ms                    | ~5263 req/s          |
+| niquests core | 170 ms                    | ~5882 req/s          |
 
-Did you give up on HTTP/2 due to performance concerns? Think again! Do you realize that you can get 2.53 times 
+Did you give up on HTTP/2 due to performance concerns? Think again! Do you realize that you can get 2.66 times 
 faster with the same CPU if you ever switched to Niquests from Requests?
 
 Yet, Niquests is not going to settle with these numbers, we're constantly thinking of innovative ways
