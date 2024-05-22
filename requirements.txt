@@ -1,9 +1,9 @@
 aiohttp==3.9.5
 
-niquests==3.6.4
-urllib3-future==2.7.908
+niquests==3.6.5
+urllib3-future==2.7.910
 
-requests==2.31.0
+requests==2.32.2
 urllib3==2.2.1
 
 httpx==0.27.0
