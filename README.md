@@ -87,7 +87,7 @@ High-level APIs
 |----------|---------------------------|----------------------|
 | requests | 987 ms                    | ~1013 req/s          |
 | httpx    | 720 ms                    | ~1389 req/s          |
-| niquests | 370 ms                    | ~2700 req/s          |
+| niquests | 340 ms                    | ~2941 req/s          |
 
 ---
 
