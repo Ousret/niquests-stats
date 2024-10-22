@@ -1,7 +1,7 @@
 services:
 
   proxy:
-    image: traefik:v2.11
+    image: traefik:v3.1.4
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "traefik" ,"healthcheck", "--ping" ]
@@ -44,7 +44,7 @@ services:
       - --ping
 
   httpbin:
-    image: mccutchen/go-httpbin:v2.13.4
+    image: mccutchen/go-httpbin:v2.15.0
     restart: unless-stopped
     deploy:
       replicas: 6

@@ -96,9 +96,9 @@ Simplified APIs
 | Client        | Average Delay to Complete | Estimated Throughput |
 |---------------|---------------------------|----------------------|
 | requests core | 643 ms                    | ~1555 req/s          |
-| httpx core    | 530 ms                    | ~1886 req/s          |
+| httpx core    | 490 ms                    | ~2000 req/s          |
 | aiohttp       | 210 ms                    | ~4762 req/s          |
-| niquests core | 170 ms                    | ~5882 req/s          |
+| niquests core | 160 ms                    | ~6200 req/s          |
 
 Did you give up on HTTP/2 due to performance concerns? Think again! Do you realize that you can get 2.66 times 
 faster with the same CPU if you ever switched to Niquests from Requests?
